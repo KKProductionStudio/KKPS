@@ -1,0 +1,473 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KK Production Studio | KKPS</title>
+
+  <meta name="description" content="KK Production Studio specializes in Wedding Shoots, AI Photography & Videography, Music Videos, and Film Making.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .logo span {
+      color: #d4af37;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.8)),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 95px);
+      letter-spacing: 5px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #ddd;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 14px 30px;
+      border: 1px solid #d4af37;
+      color: white;
+      text-decoration: none;
+      transition: .3s;
+      letter-spacing: 2px;
+    }
+
+    .btn:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+    }
+
+    .section-title p {
+      color: #aaa;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: #ccc;
+      font-size: 18px;
+    }
+
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service {
+      padding: 40px 25px;
+      border: 1px solid #222;
+      background: #101010;
+      text-align: center;
+      transition: .4s;
+    }
+
+    .service:hover {
+      transform: translateY(-8px);
+      border-color: #d4af37;
+    }
+
+    .service .icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .service h3 {
+      margin-bottom: 12px;
+      color: #d4af37;
+    }
+
+    .service p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* SHOWCASE */
+    .showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .showcase div {
+      height: 300px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .showcase img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .showcase img:hover {
+      transform: scale(1.08);
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: #0d0d0d;
+    }
+
+    .contact p {
+      color: #bbb;
+      font-size: 18px;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+    .contact-info a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .showcase {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      nav ul {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 18px 5%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .services,
+      .showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase div {
+        height: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">KK<span>PS</span></div>
+
+    <ul>
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#services">SERVICES</a></li>
+      <li><a href="#work">OUR WORK</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <h1>KK <span>PRODUCTION</span> STUDIO</h1>
+
+      <p>
+        Cinematic visuals. Creative stories. Unforgettable moments.
+        We bring your vision to life through photography, videography
+        and film making.
+      </p>
+
+      <a href="#contact" class="btn">LET'S CREATE</a>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="section-title">
+      <h2>ABOUT <span>KKPS</span></h2>
+      <p>Where creativity meets cinematic storytelling.</p>
+    </div>
+
+    <div class="about">
+
+      <p>
+        KK Production Studio is a creative production house specializing
+        in Wedding Shoots, AI Photography & Videography, Music Videos,
+        and Film Making.
+      </p>
+
+      <br>
+
+      <p>
+        Our goal is simple — to transform moments and ideas into
+        cinematic visuals that people remember. From real-life emotions
+        to imaginative AI creations, we combine technology, creativity
+        and storytelling to create something unique.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+
+    <div class="section-title">
+      <h2>OUR <span>SERVICES</span></h2>
+      <p>Creative production with a cinematic edge.</p>
+    </div>
+
+    <div class="services">
+
+      <div class="service">
+        <div class="icon">💍</div>
+        <h3>Wedding Shoots</h3>
+        <p>
+          Cinematic wedding photography and videography
+          capturing every emotion and unforgettable moment.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="icon">✨</div>
+        <h3>AI Photography</h3>
+        <p>
+          Creative AI-powered photography and visual concepts
+          that turn imagination into reality.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="icon">🎬</div>
+        <h3>Music Videos</h3>
+        <p>
+          High-impact music videos with creative direction,
+          cinematic visuals and storytelling.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="icon">🎥</div>
+        <h3>Film Making</h3>
+        <p>
+          From concept to final cut, we create cinematic films
+          with a strong visual identity.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WORK -->
+  <section id="work">
+
+    <div class="section-title">
+      <h2>OUR <span>WORK</span></h2>
+      <p>A glimpse into our visual world.</p>
+    </div>
+
+    <div class="showcase">
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80">
+      </div>
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=80">
+      </div>
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=80">
+      </div>
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1000&q=80">
+      </div>
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=80">
+      </div>
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80">
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="section-title">
+      <h2>LET'S <span>CREATE</span></h2>
+      <p>Have a project in mind? Let's turn your idea into a cinematic experience.</p>
+    </div>
+
+    <div class="contact-info">
+
+      <p>
+        📧 Email:
+        <a href="mailto:your@email.com">your@email.com</a>
+      </p>
+
+      <p>
+        📱 WhatsApp:
+        <a href="#">+92 XXX XXXXXXX</a>
+      </p>
+
+    </div>
+
+    <a href="mailto:your@email.com" class="btn">CONTACT US</a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 KK Production Studio — KKPS. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
+```
