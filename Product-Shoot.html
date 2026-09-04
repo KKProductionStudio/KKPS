@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product Shoot | KK Production Studio</title>
+
+  <meta name="description" content="Professional Product Photography and Visual Content by KK Production Studio.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      padding: 0 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 25px 80px;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.45),
+          rgba(0,0,0,0.90)
+        ),
+        url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=2000&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 950px;
+    }
+
+    .small-title {
+      color: #d4af37;
+      font-size: 13px;
+      letter-spacing: 5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 9vw, 110px);
+      line-height: 1;
+      letter-spacing: 5px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      color: #ddd;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 14px 32px;
+      border: 1px solid #d4af37;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+    }
+
+    .section-title p {
+      color: #999;
+    }
+
+    /* INTRO */
+
+    .intro {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+    }
+
+    /* SERVICES */
+
+    .product-services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .product-card {
+      background: #101010;
+      border: 1px solid #222;
+      padding: 42px 25px;
+      text-align: center;
+      transition: 0.4s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: #d4af37;
+    }
+
+    .product-card .icon {
+      font-size: 40px;
+      margin-bottom: 18px;
+    }
+
+    .product-card h3 {
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
+
+    .product-card p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery-item {
+      background: #101010;
+      border: 1px solid #222;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      transition: 0.5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-info {
+      padding: 18px;
+    }
+
+    .gallery-info h3 {
+      margin-bottom: 5px;
+    }
+
+    .gallery-info p {
+      color: #888;
+      font-size: 13px;
+    }
+
+    /* PROCESS */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .process-card {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #333;
+    }
+
+    .process-number {
+      font-size: 35px;
+      color: #d4af37;
+      margin-bottom: 15px;
+    }
+
+    .process-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* VIDEO */
+
+    .video-box {
+      max-width: 1100px;
+      margin: auto;
+      background: #000;
+      border: 1px solid #222;
+    }
+
+    .video-box video {
+      width: 100%;
+      max-height: 600px;
+      display: block;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      background: #0d0d0d;
+      border-top: 1px solid #191919;
+      border-bottom: 1px solid #191919;
+    }
+
+    .cta h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .cta h2 span {
+      color: #d4af37;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: auto;
+      color: #aaa;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .product-services,
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 0 5%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .product-services,
+      .gallery,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item img {
+        height: 420px;
+      }
+
+      .cta h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="KK Production Studio">
+    </a>
+
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="index.html#about">ABOUT</a></li>
+      <li><a href="index.html#services">SERVICES</a></li>
+      <li><a href="index.html#clients">CLIENTS</a></li>
+      <li><a href="index.html#work">OUR WORK</a></li>
+      <li><a href="index.html#contact">CONTACT</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        KK PRODUCTION STUDIO
+      </div>
+
+      <h1>
+        PRODUCT <span>SHOOT</span>
+      </h1>
+
+      <p>
+        Professional product photography and visual content
+        created to make your products look premium, attractive
+        and ready for marketing.
+      </p>
+
+      <a href="#services" class="btn">
+        EXPLORE SERVICE
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- INTRO -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        MAKE YOUR PRODUCT <span>STAND OUT</span>
+      </h2>
+
+      <p>
+        Premium visuals designed to sell your product.
+      </p>
+
+    </div>
+
+    <div class="intro">
+
+      <p>
+        Great product photography can completely change how
+        customers see your product. At KK Production Studio,
+        we create clean, detailed and visually engaging images
+        that highlight the quality and personality of your products.
+      </p>
+
+      <br>
+
+      <p>
+        From e-commerce listings and social media campaigns to
+        advertising and promotional content, we create visuals
+        that are ready for your business.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-title">
+
+      <h2>
+        PRODUCT <span>PHOTOGRAPHY</span>
+      </h2>
+
+      <p>
+        Complete product visual solutions for your business.
+      </p>
+
+    </div>
+
+
+    <div class="product-services">
+
+      <div class="product-card">
+
+        <div class="icon">📦</div>
+
+        <h3>E-Commerce Photography</h3>
+
+        <p>
+          Clean and professional product images
+          optimized for online stores and marketplaces.
+        </p>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="icon">✨</div>
+
+        <h3>Creative Product Shoot</h3>
+
+        <p>
+          Creative concepts and lifestyle photography
+          that give your products a premium appearance.
+        </p>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="icon">💎</div>
+
+        <h3>Luxury Product Shoot</h3>
+
+        <p>
+          High-end photography for luxury products,
+          premium brands and exclusive campaigns.
+        </p>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="icon">🛍️</div>
+
+        <h3>Fashion Product Shoot</h3>
+
+        <p>
+          Professional visuals for clothing, accessories,
+          footwear and fashion brands.
+        </p>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="icon">🍔</div>
+
+        <h3>Food Photography</h3>
+
+        <p>
+          Appetizing and detailed food photography
+          for restaurants, brands and food businesses.
+        </p>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="icon">🎬</div>
+
+        <h3>Product Video</h3>
+
+        <p>
+          Cinematic product videos and promotional
+          content for digital marketing campaigns.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALLERY -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        PRODUCT <span>GALLERY</span>
+      </h2>
+
+      <p>
+        Replace these sample images with your own product photography.
+      </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+      <div class="gallery-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80"
+          alt="Product Photography"
+        >
+
+        <div class="gallery-info">
+          <h3>Fashion Product</h3>
+          <p>Commercial product photography</p>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80"
+          alt="Watch Product Photography"
+        >
+
+        <div class="gallery-info">
+          <h3>Luxury Product</h3>
+          <p>Premium product photography</p>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+          alt="Camera Product Photography"
+        >
+
+        <div class="gallery-info">
+          <h3>Creative Product</h3>
+          <p>Creative commercial photography</p>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1000&q=80"
+          alt="Cosmetic Product Photography"
+        >
+
+        <div class="gallery-info">
+          <h3>Beauty Product</h3>
+          <p>Cosmetic product photography</p>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1000&q=80"
+          alt="Shoe Product Photography"
+        >
+
+        <div class="gallery-info">
+          <h3>Fashion Campaign</h3>
+          <p>Fashion product photography</p>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80"
+          alt="Food Product Photography"
+        >
+
+        <div class="gallery-info">
+          <h3>Food Product</h3>
+          <p>Commercial food photography</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROCESS -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        OUR <span>PROCESS</span>
+      </h2>
+
+      <p>
+        From product preparation to final delivery.
+      </p>
+
+    </div>
+
+
+    <div class="process">
+
+      <div class="process-card">
+
+        <div class="process-number">01</div>
+
+        <h3>Brief</h3>
+
+        <p>
+          We understand your product, audience and marketing goals.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">02</div>
+
+        <h3>Concept</h3>
+
+        <p>
+          We develop the visual style, background, props and mood.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">03</div>
+
+        <h3>Shoot</h3>
+
+        <p>
+          Your products are photographed with professional lighting
+          and creative direction.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">04</div>
+
+        <h3>Delivery</h3>
+
+        <p>
+          Final images and videos are professionally edited and delivered.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VIDEO -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        PRODUCT <span>VIDEO</span>
+      </h2>
+
+      <p>
+        Add your product promotional video here.
+      </p>
+
+    </div>
+
+
+    <div class="video-box">
+
+      <video controls preload="metadata">
+
+        <source src="product-shoot.mp4" type="video/mp4">
+
+        Your browser does not support video.
+
+      </video>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>
+      LET'S SHOOT YOUR <span>PRODUCT</span>
+    </h2>
+
+    <p>
+      Ready to make your products look premium?
+      Let's create visuals that get attention.
+    </p>
+
+    <a href="index.html#contact" class="btn">
+      START A PROJECT
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 KK Production Studio — KKPS.
+    All Rights Reserved.
+
+  </footer>
+
+</body>
+</html>
