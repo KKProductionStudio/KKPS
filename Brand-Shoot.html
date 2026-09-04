@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Brand Shoot | KK Production Studio</title>
+
+  <meta name="description" content="Professional Brand Photography and Visual Content by KK Production Studio.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      padding: 0 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 25px 80px;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.48),
+          rgba(0,0,0,0.90)
+        ),
+        url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 950px;
+    }
+
+    .small-title {
+      color: #d4af37;
+      font-size: 13px;
+      letter-spacing: 5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 9vw, 110px);
+      line-height: 1;
+      letter-spacing: 5px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      color: #ddd;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 14px 32px;
+      border: 1px solid #d4af37;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+    }
+
+    .section-title p {
+      color: #999;
+    }
+
+    /* INTRO */
+
+    .intro {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+    }
+
+    /* SERVICES */
+
+    .brand-services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .brand-card {
+      background: #101010;
+      border: 1px solid #222;
+      padding: 42px 25px;
+      text-align: center;
+      transition: 0.4s;
+    }
+
+    .brand-card:hover {
+      transform: translateY(-8px);
+      border-color: #d4af37;
+    }
+
+    .brand-card .icon {
+      font-size: 40px;
+      margin-bottom: 18px;
+    }
+
+    .brand-card h3 {
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
+
+    .brand-card p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .portfolio-item {
+      background: #101010;
+      border: 1px solid #222;
+      overflow: hidden;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      display: block;
+      transition: 0.5s;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-info {
+      padding: 20px;
+    }
+
+    .portfolio-info h3 {
+      margin-bottom: 5px;
+    }
+
+    .portfolio-info p {
+      color: #888;
+      font-size: 13px;
+    }
+
+    /* PROCESS */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .process-card {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #333;
+    }
+
+    .process-number {
+      font-size: 35px;
+      color: #d4af37;
+      margin-bottom: 15px;
+    }
+
+    .process-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* VIDEO */
+
+    .video-box {
+      max-width: 1100px;
+      margin: auto;
+      background: #000;
+      border: 1px solid #222;
+    }
+
+    .video-box video {
+      width: 100%;
+      max-height: 600px;
+      display: block;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      background: #0d0d0d;
+      border-top: 1px solid #191919;
+      border-bottom: 1px solid #191919;
+    }
+
+    .cta h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .cta h2 span {
+      color: #d4af37;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: auto;
+      color: #aaa;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .brand-services,
+      .portfolio {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      nav {
+        padding: 0 5%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .brand-services,
+      .portfolio,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-item img {
+        height: 350px;
+      }
+
+      .cta h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="KK Production Studio">
+    </a>
+
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="index.html#about">ABOUT</a></li>
+      <li><a href="index.html#services">SERVICES</a></li>
+      <li><a href="index.html#clients">CLIENTS</a></li>
+      <li><a href="index.html#work">OUR WORK</a></li>
+      <li><a href="index.html#contact">CONTACT</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        KK PRODUCTION STUDIO
+      </div>
+
+      <h1>
+        BRAND <span>SHOOT</span>
+      </h1>
+
+      <p>
+        Powerful photography and visual storytelling designed
+        to showcase your brand, products, people and personality.
+      </p>
+
+      <a href="#services" class="btn">
+        EXPLORE SERVICE
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- INTRO -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        YOUR BRAND. <span>YOUR STORY.</span>
+      </h2>
+
+      <p>
+        Professional visuals that make your brand stand out.
+      </p>
+
+    </div>
+
+    <div class="intro">
+
+      <p>
+        A strong brand deserves strong visuals. KK Production Studio
+        creates professional brand photography and visual content
+        designed to communicate your identity, personality and
+        value.
+      </p>
+
+      <br>
+
+      <p>
+        Whether you are launching a new brand, refreshing your
+        existing identity or creating content for your next campaign,
+        we build visuals that are clean, creative and memorable.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-title">
+
+      <h2>
+        BRAND SHOOT <span>SERVICES</span>
+      </h2>
+
+      <p>
+        Complete visual content solutions for your brand.
+      </p>
+
+    </div>
+
+
+    <div class="brand-services">
+
+      <div class="brand-card">
+
+        <div class="icon">📸</div>
+
+        <h3>Brand Photography</h3>
+
+        <p>
+          Professional photography that communicates your
+          brand's personality, style and story.
+        </p>
+
+      </div>
+
+
+      <div class="brand-card">
+
+        <div class="icon">👔</div>
+
+        <h3>Corporate Portraits</h3>
+
+        <p>
+          Professional portraits for founders, teams,
+          executives and business professionals.
+        </p>
+
+      </div>
+
+
+      <div class="brand-card">
+
+        <div class="icon">🏷️</div>
+
+        <h3>Product Branding</h3>
+
+        <p>
+          Creative product visuals designed for marketing,
+          advertising and digital platforms.
+        </p>
+
+      </div>
+
+
+      <div class="brand-card">
+
+        <div class="icon">📱</div>
+
+        <h3>Social Media Content</h3>
+
+        <p>
+          High-quality visual content created specifically
+          for your social media campaigns.
+        </p>
+
+      </div>
+
+
+      <div class="brand-card">
+
+        <div class="icon">🎬</div>
+
+        <h3>Brand Videos</h3>
+
+        <p>
+          Cinematic brand films and promotional videos that
+          bring your business story to life.
+        </p>
+
+      </div>
+
+
+      <div class="brand-card">
+
+        <div class="icon">✨</div>
+
+        <h3>Creative Campaigns</h3>
+
+        <p>
+          Creative campaign visuals with a consistent
+          direction across multiple platforms.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PORTFOLIO -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        BRAND <span>PORTFOLIO</span>
+      </h2>
+
+      <p>
+        Replace these sample images with your own work.
+      </p>
+
+    </div>
+
+
+    <div class="portfolio">
+
+      <div class="portfolio-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=1000&q=80"
+          alt="Brand Photography"
+        >
+
+        <div class="portfolio-info">
+
+          <h3>Brand Campaign</h3>
+
+          <p>
+            Creative brand photography
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="portfolio-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80"
+          alt="Corporate Brand Shoot"
+        >
+
+        <div class="portfolio-info">
+
+          <h3>Corporate Story</h3>
+
+          <p>
+            Professional business visuals
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="portfolio-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80"
+          alt="Business Photography"
+        >
+
+        <div class="portfolio-info">
+
+          <h3>Business Identity</h3>
+
+          <p>
+            Modern brand photography
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="portfolio-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80"
+          alt="Product Brand Photography"
+        >
+
+        <div class="portfolio-info">
+
+          <h3>Product Campaign</h3>
+
+          <p>
+            Product-focused visual content
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="portfolio-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=80"
+          alt="Team Brand Photography"
+        >
+
+        <div class="portfolio-info">
+
+          <h3>Team Portraits</h3>
+
+          <p>
+            Professional team photography
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="portfolio-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80"
+          alt="Creative Brand Photography"
+        >
+
+        <div class="portfolio-info">
+
+          <h3>Creative Campaign</h3>
+
+          <p>
+            Creative visual storytelling
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROCESS -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        OUR <span>PROCESS</span>
+      </h2>
+
+      <p>
+        From concept to final visual.
+      </p>
+
+    </div>
+
+
+    <div class="process">
+
+      <div class="process-card">
+
+        <div class="process-number">01</div>
+
+        <h3>Concept</h3>
+
+        <p>
+          We understand your brand, goals and creative direction.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">02</div>
+
+        <h3>Planning</h3>
+
+        <p>
+          We plan the location, styling, mood and visual approach.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">03</div>
+
+        <h3>Shoot</h3>
+
+        <p>
+          Our team captures professional photographs and videos.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">04</div>
+
+        <h3>Delivery</h3>
+
+        <p>
+          Final professionally edited visuals are delivered to you.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VIDEO -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        BRAND <span>FILM</span>
+      </h2>
+
+      <p>
+        Add your brand video or promotional film here.
+      </p>
+
+    </div>
+
+
+    <div class="video-box">
+
+      <video controls preload="metadata">
+
+        <source src="brand-shoot.mp4" type="video/mp4">
+
+        Your browser does not support the video tag.
+
+      </video>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>
+      LET'S BUILD YOUR <span>BRAND</span>
+    </h2>
+
+    <p>
+      Ready to create professional visuals for your brand?
+      Let's bring your creative vision to life.
+    </p>
+
+    <a href="index.html#contact" class="btn">
+      START A PROJECT
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 KK Production Studio — KKPS.
+    All Rights Reserved.
+
+  </footer>
+
+</body>
+</html>
