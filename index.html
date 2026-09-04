@@ -235,9 +235,6 @@
   object-fit: contain;
 }
 
-
-
-
     
     /* SHOWCASE */
     .showcase {
@@ -354,7 +351,71 @@
   background: #d4af37;
   color: #000;
 }
-  
+
+    /* MOBILE MENU */
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  font-size: 25px;
+  width: 45px;
+  height: 42px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media (max-width: 700px) {
+
+  nav {
+    height: 75px;
+    padding: 0 20px;
+  }
+
+  .logo img {
+    height: 48px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: rgba(8,8,8,0.98);
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+    border-top: 1px solid #222;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 16px 10px;
+    width: 100%;
+  }
+
+  nav ul li a:hover {
+    background: #151515;
+    color: #d4af37;
+  }
+}
   
   </style>
 </head>
@@ -374,6 +435,8 @@
       <li><a href="#work">OUR WORK</a></li>
       <li><a href="#contact">CONTACT</a></li>
     </ul>
+    
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </nav>
 
 
