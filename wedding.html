@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Wedding | KK Production Studio</title>
+
+  <meta name="description" content="KK Production Studio - Cinematic Wedding Photography and Videography.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      padding: 0 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo img {
+      height: 52px;
+      width: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 25px 80px;
+      background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.88)),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .small-title {
+      color: #d4af37;
+      font-size: 13px;
+      letter-spacing: 5px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 110px);
+      line-height: 1;
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #ddd;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 14px 30px;
+      border: 1px solid #d4af37;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+    }
+
+    .section-title p {
+      color: #999;
+    }
+
+    .about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+    }
+
+    .wedding-services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .wedding-card {
+      background: #101010;
+      border: 1px solid #222;
+      padding: 40px 25px;
+      text-align: center;
+      transition: 0.4s;
+    }
+
+    .wedding-card:hover {
+      transform: translateY(-8px);
+      border-color: #d4af37;
+    }
+
+    .wedding-card .icon {
+      font-size: 38px;
+      margin-bottom: 18px;
+    }
+
+    .wedding-card h3 {
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
+
+    .wedding-card p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: 0.4s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .video-card {
+      background: #101010;
+      border: 1px solid #222;
+      overflow: hidden;
+    }
+
+    .video-card video {
+      width: 100%;
+      height: 350px;
+      display: block;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .video-info {
+      padding: 20px;
+    }
+
+    .video-info h3 {
+      margin-bottom: 5px;
+    }
+
+    .video-info p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .cta {
+      text-align: center;
+      background: #0d0d0d;
+      border-top: 1px solid #191919;
+      border-bottom: 1px solid #191919;
+    }
+
+    .cta h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .cta h2 span {
+      color: #d4af37;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: auto;
+      color: #aaa;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .wedding-services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 0 5%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .wedding-services,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 350px;
+      }
+
+      .video-card video {
+        height: 260px;
+      }
+
+      .cta h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="KK Production Studio">
+    </a>
+
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="index.html#about">ABOUT</a></li>
+      <li><a href="index.html#services">SERVICES</a></li>
+      <li><a href="index.html#clients">CLIENTS</a></li>
+      <li><a href="index.html#work">OUR WORK</a></li>
+      <li><a href="index.html#contact">CONTACT</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        KK PRODUCTION STUDIO
+      </div>
+
+      <h1>
+        <span>WEDDING</span>
+      </h1>
+
+      <p>
+        We capture real emotions, beautiful moments and unforgettable
+        memories through cinematic wedding photography and videography.
+      </p>
+
+      <a href="#portfolio" class="btn">
+        VIEW OUR WORK
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        YOUR STORY. <span>YOUR MOMENTS.</span>
+      </h2>
+
+      <p>
+        Beautifully captured. Cinematically remembered.
+      </p>
+
+    </div>
+
+    <div class="about">
+
+      <p>
+        Your wedding day is more than an event — it is a collection
+        of emotions, people and moments that deserve to be remembered.
+        At KK Production Studio, we turn those moments into cinematic
+        memories.
+      </p>
+
+      <br>
+
+      <p>
+        From the first look to the final celebration, our team focuses
+        on natural emotions, creative compositions and timeless visuals.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- WEDDING SERVICES -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        WEDDING <span>SERVICES</span>
+      </h2>
+
+      <p>
+        Complete cinematic coverage for your special day.
+      </p>
+
+    </div>
+
+
+    <div class="wedding-services">
+
+      <div class="wedding-card">
+        <div class="icon">📸</div>
+        <h3>Wedding Photography</h3>
+        <p>
+          Creative and timeless photography capturing every
+          important moment of your celebration.
+        </p>
+      </div>
+
+      <div class="wedding-card">
+        <div class="icon">🎥</div>
+        <h3>Wedding Videography</h3>
+        <p>
+          Cinematic wedding films that preserve your emotions,
+          memories and special moments.
+        </p>
+      </div>
+
+      <div class="wedding-card">
+        <div class="icon">🎬</div>
+        <h3>Cinematic Highlights</h3>
+        <p>
+          Beautifully edited highlight films designed to tell
+          your wedding story in a cinematic way.
+        </p>
+      </div>
+
+      <div class="wedding-card">
+        <div class="icon">💍</div>
+        <h3>Engagement Shoots</h3>
+        <p>
+          Romantic pre-wedding and engagement sessions with
+          creative locations and cinematic visuals.
+        </p>
+      </div>
+
+      <div class="wedding-card">
+        <div class="icon">❤️</div>
+        <h3>Couple Portraits</h3>
+        <p>
+          Elegant and natural couple portraits that capture
+          your connection and personality.
+        </p>
+      </div>
+
+      <div class="wedding-card">
+        <div class="icon">✨</div>
+        <h3>Event Coverage</h3>
+        <p>
+          Complete coverage of your wedding celebrations,
+          ceremonies and memorable events.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PHOTO GALLERY -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        WEDDING <span>GALLERY</span>
+      </h2>
+
+      <p>
+        Replace these images with your own wedding photography.
+      </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=80" alt="Wedding photography">
+
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Wedding photography">
+
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Wedding photography">
+
+      <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1000&q=80" alt="Wedding photography">
+
+      <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1000&q=80" alt="Wedding photography">
+
+      <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=80" alt="Wedding photography">
+
+    </div>
+
+  </section>
+
+
+  <!-- WEDDING VIDEOS -->
+
+  <section id="portfolio">
+
+    <div class="section-title">
+
+      <h2>
+        WEDDING <span>FILMS</span>
+      </h2>
+
+      <p>
+        Add your wedding films and highlight videos here.
+      </p>
+
+    </div>
+
+
+    <div class="video-grid">
+
+      <div class="video-card">
+
+        <video controls preload="metadata">
+
+          <source src="wedding-main.mp4" type="video/mp4">
+
+          Your browser does not support video.
+
+        </video>
+
+        <div class="video-info">
+
+          <h3>Wedding Highlight</h3>
+
+          <p>
+            Cinematic wedding film by KKPS.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="video-card">
+
+        <video controls preload="metadata">
+
+          <source src="wedding-02.mp4" type="video/mp4">
+
+          Your browser does not support video.
+
+        </video>
+
+        <div class="video-info">
+
+          <h3>Wedding Story</h3>
+
+          <p>
+            A collection of beautiful wedding moments.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>
+      LET'S CAPTURE <span>YOUR STORY</span>
+    </h2>
+
+    <p>
+      Your wedding deserves to be remembered beautifully.
+      Let's create something timeless together.
+    </p>
+
+    <a href="index.html#contact" class="btn">
+      BOOK YOUR DATE
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 KK Production Studio — KKPS.
+    All Rights Reserved.
+
+  </footer>
+
+</body>
+</html>
